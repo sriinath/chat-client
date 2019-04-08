@@ -13,8 +13,6 @@
     "@types/react-dom": "^16.8.3",
     "@types/socket.io-client": "^1.4.32",
     "html-webpack-plugin": "^3.2.0",
-    "mobx": "^5.9.0",
-    "mobx-react": "^5.4.3",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "socket.io-client": "^2.2.0",
