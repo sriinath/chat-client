@@ -4,6 +4,11 @@ import * as io from 'socket.io-client';
 import { IconBackground, ChatMessage, Input } from './components/atoms'
 import { ChatListBlock } from './components/organisms'
 import { ChatBlockProps } from './components/Molecules'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './store/reducer'
+import { UserList } from './layouts'
+const store = createStore(reducer)
 // const socket = io('http://localhost:3000');
 
 const list: ChatBlockProps[] = [
@@ -27,12 +32,16 @@ class App extends React.Component {
                 <ChatMessage message='hello world' />
                 <ChatMessage message='hello world' leftAligned={false} />
                 <Input value='hi'/>
+                <UserList />
             </>
         )
     }
 }
 
+
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById("root")
 );
