@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 interface ChatBlockProps extends ChatBlockEvents {
     message?: string
     userName: string
+    recipientUserName?: string
     date?: Date
     notificationCount?: number
     userNameEllipsis?: boolean

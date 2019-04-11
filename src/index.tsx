@@ -1,15 +1,15 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import * as io from 'socket.io-client';
+import * as ReactDOM from "react-dom"
 import { IconBackground, ChatMessage, Input } from './components/atoms'
 import { ChatListBlock } from './components/organisms'
 import { ChatBlockProps } from './components/Molecules'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './store/reducer'
 import { UserList } from './layouts'
-const store = createStore(reducer)
-// const socket = io('http://localhost:3000');
+import { SocketProvider } from './context/Socket'
+import thunkMiddleware from 'redux-thunk'
+const store = createStore(reducer, applyMiddleware(thunkMiddleware))
 
 const list: ChatBlockProps[] = [
     {
@@ -26,14 +26,14 @@ const list: ChatBlockProps[] = [
 class App extends React.Component {
     render() {
         return (
-            <>
+            <SocketProvider url='localhost:3000'>
                 <IconBackground isFixed={true} />
                 <ChatListBlock list={...list} userNameEllipsis={true}/>
                 <ChatMessage message='hello world' />
                 <ChatMessage message='hello world' leftAligned={false} />
                 <Input value='hi'/>
                 <UserList />
-            </>
+            </SocketProvider>
         )
     }
 }

@@ -1,13 +1,11 @@
 import { getUserList } from '../actionType'
 import { UserList } from '../types'
 
-const UserListAction = () : UserList => {
-    console.log('in action')
+const UserListAction = (UserData: [{ userName?: string }]) : UserList => {
+    console.log('in actions')
     return {
         type: getUserList,
-        data: [{
-            userName: 'karthikeyan'
-        }]
+        data: UserData || []
     }
 }
 
