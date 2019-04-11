@@ -2,9 +2,14 @@ import * as React from 'react'
 import { ChatWrapper } from './styled'
 import { UserList } from '../'
 const ChatBot = (props: any) => {
+    const {
+        width,
+        height,
+        top
+    } = props
     return (
-        <ChatWrapper width='250px' height='400px'>
-            <UserList />
+        <ChatWrapper {...props} >
+            <UserList {...props} />
         </ChatWrapper>
     )
 }

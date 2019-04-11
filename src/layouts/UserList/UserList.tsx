@@ -11,7 +11,6 @@ class UserListChat extends React.Component<any> {
     constructor(props: any) {
         super(props)
     }
-    // userChatlist: [{ userName: string }] | [] = []
     bindUserListEvents() {
         this.socket.on('userData', (data: [ {userName: string} ]) => {
             this.props.dispatch(UserListAction(data))
@@ -26,14 +25,11 @@ class UserListChat extends React.Component<any> {
         this.getUserList()
     }
     render() {
-        const { data } = this.props
+        const { data, ...remainingProps } = this.props
         const chats = data && data[0] && data[0].chats || []
         // filter all the chats starred by user seprately as array from all previous chats
         const StarredChats = chats.filter((chat: any) => chat.starred === true)
-        console.log(data)
-        console.log(StarredChats)
-
-        return <ChatListBlock list={StarredChats} />
+        return <ChatListBlock list={StarredChats} {...remainingProps} />
     }
 }
 const mapStateToProps = (state: AppState) => ({
