@@ -3,6 +3,7 @@ import { IconBackgroundProps } from './typings'
 import { BackgroundElement } from './Styled'
 
 const IconBackground: React.SFC<IconBackgroundProps> = (props) => {
+    console.log('in icon backgound')
     return <BackgroundElement {...props} />
 }
 IconBackground.defaultProps = {

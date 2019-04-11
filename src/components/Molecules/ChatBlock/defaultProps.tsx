@@ -17,6 +17,7 @@ const defaultRenderNotificationCount = (notificationCount: number) => {
 const defaultRenderWrapper = (props: ChatBlockProps) => {
     const {
         userName,
+        recipientUserName,
         renderUserName,
         date,
         userNameEllipsis,
@@ -29,7 +30,7 @@ const defaultRenderWrapper = (props: ChatBlockProps) => {
     } = props
     return (
         <ChatBlockWrapper>
-            {userName && renderUserName({ userName, userNameEllipsis })}
+            {userName && renderUserName({ userName, userNameEllipsis }) || recipientUserName && renderUserName({ userName: recipientUserName, userNameEllipsis })}
             {/* Added a empty div for notification count as this is inside grid and need a dom for proper UI*/}
             {notificationCount && renderNotificationCount(notificationCount) || <div></div>}
             {message && renderMessage({ message, MessageEllipsis })}
