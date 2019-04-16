@@ -1,3 +1,3 @@
-export * from './ChatBot'
+export * from './ChatHub'
 export * from './styled'
 export * from './typings'
