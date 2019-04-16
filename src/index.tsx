@@ -6,7 +6,7 @@ import { ChatBlockProps } from './components/Molecules'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './store/reducer'
-import { ChatBot } from './layouts'
+import { ChatHub } from './layouts'
 import { SocketProvider } from './context/Socket'
 import thunkMiddleware from 'redux-thunk'
 const store = createStore(reducer, applyMiddleware(thunkMiddleware))
@@ -32,7 +32,7 @@ class App extends React.Component {
                 <ChatMessage message='hello world' />
                 <ChatMessage message='hello world' leftAligned={false} />
                 <Input value='hi'/> */}
-                <ChatBot
+                <ChatHub
                     width='250px'
                     height='400px'
                     top={'30px'}

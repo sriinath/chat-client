@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { ChatWrapper } from './styled'
-import { UserList } from '../'
-const ChatBot = (props: any) => {
+import { UserList } from '..'
+const ChatHub = (props: any) => {
     const {
         width,
         height,
@@ -14,4 +14,4 @@ const ChatBot = (props: any) => {
     )
 }
 
-export { ChatBot }
+export { ChatHub }
