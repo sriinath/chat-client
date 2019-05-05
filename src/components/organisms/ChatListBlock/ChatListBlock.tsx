@@ -4,9 +4,9 @@ import { ChatListProps } from './typings'
 import { ChatListWrapper } from './styled'
 
 const ChatListBlock = (props: ChatListProps) => {
-    const { list, ...remainingProps } = props
+    const { list, headerHeight, ...remainingProps } = props
     return (
-        <ChatListWrapper {...remainingProps}>
+        <ChatListWrapper headerHeight={headerHeight} {...remainingProps}>
             {list.map((item, index) => <ChatBlock {...item} key={index} {...remainingProps} />)}
         </ChatListWrapper>
     )

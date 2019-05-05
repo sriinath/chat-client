@@ -4,9 +4,9 @@ import { IconBackgroundProps } from './typings'
 
 const BackgroundElement = Styled.div `
     ${(props: IconBackgroundProps) => css`
-        background-color: ${props.backgroundColor || 'rgb(19, 170, 82)'};
-        width: ${props.width || '60px'};
-        height: ${props.height || '60px'};
+        background-color: ${props.backgroundColor || 'transparent'};
+        width: ${props.width || 'auto'};
+        height: ${props.height || 'auto'};
         border-radius : ${props.isRectangular ? 'none' : '50%'};
     `}
     ${(props: IconBackgroundProps) => props.isFixed ? css`

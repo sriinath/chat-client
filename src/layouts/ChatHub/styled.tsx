@@ -14,6 +14,7 @@ const ChatWrapper = styled.div`
         bottom: ${props.bottom || 'auto'};
         right: ${props.right || 'auto'}
     `}
+    min-width: 320px;
+    max-width: 100%;
 `
-
 export { ChatWrapper }

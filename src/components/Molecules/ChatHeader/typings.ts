@@ -5,10 +5,10 @@ interface ChatHeaderProps extends ChatHeaderStyleProps, ChatHeaderRenderEvents {
     isGroupIconAvailable?: boolean
 }
 interface ChatHeaderStyleProps {
-    width?: string
-    height?: string
-    backgroundColor?: string
-    color?: string
+    headerWidth?: string
+    headerHeight?: string
+    headerBackgroundColor?: string
+    headerColor?: string
 }
 interface ChatHeaderRenderEvents {
     renderWrapper?: (props: ChatHeaderProps) => ReactNode
