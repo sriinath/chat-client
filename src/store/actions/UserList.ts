@@ -1,10 +1,10 @@
 import { getUserList } from '../actionType'
-import { UserList } from '../types'
+import { UserList, UserListActionTypes } from '../types'
 
-const UserListAction = (UserData: [{ userName?: string }]) : UserList => {
+const UserListAction = (UserData: [UserList]) : UserListActionTypes => {
     return {
         type: getUserList,
-        data: UserData || []
+        data: UserData
     }
 }
 

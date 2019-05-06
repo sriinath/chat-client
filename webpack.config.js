@@ -15,6 +15,20 @@ module.exports = {
               test: /\.tsx?$/,
               loader: 'awesome-typescript-loader',
               exclude: /node_modules/
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+                // loader: 'file-loader',
+                use: {
+                    loader: "url-loader",
+                    options: {
+                      // Limit at 50k. Above that it emits separate files
+                      limit: 50000,
+                      mimetype: "application/font-woff",
+                      // Output below fonts directory
+                      name: "[name].[ext]"
+                    }
+                }
             }
         ]
     },

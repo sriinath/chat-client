@@ -7,11 +7,26 @@ import {
     defaultRenderUserIcon,
     defaultRenderWrapper
 } from './defaultProps'
-const ChatHeader: React.FC<ChatHeaderProps> = (props) => {
-    return <ChatHeaderWrapper>
 
+const ChatHeader = React.forwardRef((props: ChatHeaderProps, ref) => {
+    const {
+        renderWrapper,
+        headerWidth,
+        headerHeight,
+        headerBackgroundColor,
+        headerColor,
+        ...remainingProps
+    } = props
+    const headerProps = {
+        headerHeight,
+        headerWidth,
+        headerBackgroundColor,
+        headerColor
+    }
+    return <ChatHeaderWrapper {...headerProps} >
+        {renderWrapper(remainingProps)}
     </ChatHeaderWrapper>
-}
+})
 
 ChatHeader.defaultProps = {
     isSearchIconAvailable: true,

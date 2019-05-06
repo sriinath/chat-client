@@ -1,12 +1,17 @@
-import { getUserList } from '../actionType'
-import { UserList } from '../types'
+import {
+  getUserList
+} from '../actionType'
+import { UserListActionTypes } from '../types'
 
-const UserListReducer = (state = {}, action: UserList) => {
+const UserListReducer = (state = {}, action: UserListActionTypes) => {
   switch (action.type) {
-    case getUserList:
-      return action.data
+    case getUserList: {
+      const data = action.data && action.data.length && action.data[0] && action.data[0].chats || [] 
+      // const StarredChats = data.filter((chat: any) => chat.starred === 'true')
+      return data
+    }
     default:
-      return state
+      return []
   }
 }
 
