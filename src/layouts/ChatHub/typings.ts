@@ -1,4 +1,5 @@
 import { ChatHeaderProps } from '../../components/Molecules'
+
 interface ChatWrapperProps extends ChatHeaderProps {
     width?: string
     height?: string
@@ -10,4 +11,10 @@ interface ChatWrapperProps extends ChatHeaderProps {
     left?: string
     right?: string
 }
-export { ChatWrapperProps }
+interface LayoutProps {
+    screen: string
+    type: string
+    chatId: string
+}
+
+export { ChatWrapperProps, LayoutProps }

@@ -38,11 +38,12 @@ const defaultRenderSearchIcon = () => {
     )
 }
 const defaultRenderWrapper = (props: ChatHeaderProps) => {
+    const { toggleViews } = props
     return (
         <>
-            {props.isGroupIconAvailable ? props.renderGroupIcon() : ''}
-            {props.isUserIconAvailable ? props.renderUserIcon() : ''}
-            {props.isSearchIconAvailable ? props.renderSearchIcon() : ''}
+            {props.isGroupIconAvailable ? <div onClick={e => toggleViews('group')}>{props.renderGroupIcon()}</div> : ''}
+            {props.isUserIconAvailable ? <div onClick={e => toggleViews('person')}>{props.renderUserIcon()}</div> : ''}
+            {props.isSearchIconAvailable ? <div onClick={e => toggleViews('search')}>{props.renderSearchIcon()}</div> : ''}
         </>
     )
 }

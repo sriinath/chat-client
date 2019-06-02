@@ -18,6 +18,7 @@ const defaultRenderWrapper = (props: ChatBlockProps) => {
     const {
         skipUserName,
         userName,
+        chatId,
         recipientUserName,
         renderUserName,
         date,
@@ -33,7 +34,7 @@ const defaultRenderWrapper = (props: ChatBlockProps) => {
     } = props
     return (
         <ChatBlockWrapper
-            onClick={chatBlockHandler}
+            onClick={(e: EventTarget) => chatBlockHandler(chatId)}
             profileUserName={profileUserName}
             recipientUserName={recipientUserName}
             skipUserName={skipUserName}

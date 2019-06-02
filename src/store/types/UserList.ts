@@ -5,7 +5,7 @@ interface UserListActionTypes {
 interface ChatType {
     chatId: string
     recipientUserName: string
-    starred?: 'true' | 'false'
+    starred?: boolean
 }
 interface UserList {
     userName: string
@@ -13,5 +13,6 @@ interface UserList {
 }
 export {
     UserListActionTypes,
-    UserList
+    UserList,
+    ChatType
 }

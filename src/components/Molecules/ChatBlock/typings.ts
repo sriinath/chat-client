@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 interface ChatBlockProps extends ChatBlockEvents {
+    chatId?: string
     message?: string
     userName: string
     skipUserName?: boolean
@@ -17,7 +18,7 @@ interface ChatBlockEvents {
     renderMessage?: (props: { message: string, MessageEllipsis: boolean }) => ReactNode
     renderDate?: (props: Date) => ReactNode
     renderNotificationCount?: (props: number) => ReactNode
-    chatBlockHandler?: (e: EventTarget) => void
+    chatBlockHandler?: (chatId: string) => void
 }
 
 export { ChatBlockProps, ChatBlockEvents }

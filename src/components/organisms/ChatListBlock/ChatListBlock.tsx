@@ -7,7 +7,13 @@ const ChatListBlock = (props: ChatListProps) => {
     const { list, headerHeight, ...remainingProps } = props
     return (
         <ChatListWrapper headerHeight={headerHeight} {...remainingProps}>
-            {list.map((item, index) => <ChatBlock {...item} key={index} {...remainingProps} />)}
+            {list.map((item, index) =>
+                <ChatBlock
+                    {...item}
+                    {...remainingProps}
+                    key={index}
+                />
+            )}
         </ChatListWrapper>
     )
 }

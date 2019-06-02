@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ChatHeaderWrapper } from './styled'
-import { ChatHeaderProps } from './typings';
+import { ChatRefProps } from './typings';
 import {
     defaultRenderGroupsIcon,
     defaultRenderSearchIcon,
@@ -8,13 +8,14 @@ import {
     defaultRenderWrapper
 } from './defaultProps'
 
-const ChatHeader = React.forwardRef((props: ChatHeaderProps, ref) => {
+const ChatHeader = (props: ChatRefProps) => {
     const {
         renderWrapper,
         headerWidth,
         headerHeight,
         headerBackgroundColor,
         headerColor,
+        forwardedRef,
         ...remainingProps
     } = props
     const headerProps = {
@@ -23,10 +24,10 @@ const ChatHeader = React.forwardRef((props: ChatHeaderProps, ref) => {
         headerBackgroundColor,
         headerColor
     }
-    return <ChatHeaderWrapper {...headerProps} >
+    return <ChatHeaderWrapper ref={forwardedRef} {...headerProps} >
         {renderWrapper(remainingProps)}
     </ChatHeaderWrapper>
-})
+}
 
 ChatHeader.defaultProps = {
     isSearchIconAvailable: true,
