@@ -4,39 +4,7 @@ import { AppState } from '../../../store/reducer'
 import { SocketContext } from '../../../context/Socket'
 import { UserListAction } from '../../../store/actions'
 import { StyledChatListBlock } from './styled'
-import { UserList } from '../../../store/types';
-const stubData: any = [{
-    chats: [
-        {
-            recipientUserName: 'srinath',
-            starred: true
-        },
-        {
-            recipientUserName: 'srinath',
-            starred: true
-        },
-        {
-            recipientUserName: 'virat',
-            starred: true
-        },
-        {
-            recipientUserName: 'virat',
-            starred: true
-        },
-        {
-            recipientUserName: 'virat',
-            starred: true
-        },
-        {
-            recipientUserName: 'virat',
-            starred: true
-        },
-        {
-            recipientUserName: 'virat',
-            starred: true
-        }
-    ]
-}]
+import { UserList, ChatType } from '../../../store/types'
 class UserListChat extends React.Component<any> {
     static contextType = SocketContext
     socket: SocketIOClient.Socket
@@ -55,7 +23,8 @@ class UserListChat extends React.Component<any> {
     }
     render() {
         const { data, headerHeight, ...remainingProps } = this.props
-        return <StyledChatListBlock list={data} headerHeight={headerHeight} {...remainingProps} />
+        const favoritesChat = data.filter((chat: ChatType) => chat.starred === true)
+        return <StyledChatListBlock list={favoritesChat} headerHeight={headerHeight} {...remainingProps} />
     }
 }
 const mapStateToProps = (state: AppState) => ({

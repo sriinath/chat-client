@@ -17,17 +17,20 @@ class UserMessageList extends React.Component<any> {
         })
     }
     componentDidMount() {
+        const { chatId } = this.props
         this.socket = this.context
         this.bindChatEvents()
-        this.socket.emit('new_chat')
+        this.socket.emit('new_chat', chatId)
     }
     render() {
-        const { data, headerHeight, profileUserName, skipUserName } = this.props
+        const { data, headerHeight, skipUserName } = this.props
+        const { userName } = data
         return <ChatListBlock
                 list={data}
                 headerHeight={headerHeight}
-                profileUserName={profileUserName}
-                skipUserName={skipUserName} />
+                profileUserName={userName}
+                skipUserName={skipUserName}
+            />
     }
 }
 
